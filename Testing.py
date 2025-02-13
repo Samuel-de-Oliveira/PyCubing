@@ -10,6 +10,13 @@ def main():
         print(item, end=' ')
     print('\033[m')
 
+    # Test 3x3x3 Scramble
+    print('\033[1;4m3x3x3 Scramble:\033[m \033[3m', end='')
+    gen3x3x3: list = Shufflers.Cube3x3x3()
+    for item in gen3x3x3:
+        print(item, end=' ')
+    print('\033[m')
+
 
 if __name__ == "__main__":
     print(f'Pycubing Version: \033[1m{PyCubing.__version__}\033[m')
