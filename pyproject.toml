@@ -1,0 +1,11 @@
+[project]
+name = "PyCubing"
+version = "0.1"
+description = "A Python module to make speedcubing projects a piece of cake."
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["rubik", "cube", "solver", "Rubik Cube", "Shuffler"]
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/Samuel-de-Oliveira/PyCubing"
