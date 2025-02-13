@@ -1,5 +1,10 @@
 from random import randint
 
+__all__: list = [
+  'Cube2x2x2'
+]
+
+
 def Cube2x2x2(size: int = 12, ANSI: bool = True) -> list:
   """
     This function generates a scramble for 2x2x2 Cube
@@ -9,7 +14,7 @@ def Cube2x2x2(size: int = 12, ANSI: bool = True) -> list:
   Moves_types: tuple = ('R', 'U', 'F')
   Orientation: tuple = ("", "'", "2")
 
-  Moves = []
+  Moves: list = []
   for i in range(1, size + 1):
     Moves.append(
       Moves_types[randint(0, 2)] +
@@ -17,6 +22,7 @@ def Cube2x2x2(size: int = 12, ANSI: bool = True) -> list:
     )
   
   return Moves
+
 
 if __name__ == "__main__":
   print("""
