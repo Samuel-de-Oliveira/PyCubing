@@ -6,6 +6,17 @@ __all__: list = [
 ]
 
 
+def sameAxis(MoveA: str, MoveB: str, MoveC: str) -> None:
+    """
+      Internal function to check if a group of 3 movements
+      are from the same axis.
+      A sequence of 3 moves in the same aixis is not valid.
+      Ex.: R L R, F B F, U D U, L R L, etc.
+    """
+    concatened: str = MoveA[-1] + MoveB[-1] + MoveC[-1]
+    return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
+
+
 def Cube2x2x2(size: int = 12) -> list:
   """
     This function generates a scramble for 2x2x2 Cube
@@ -35,18 +46,6 @@ def Cube3x3x3(size: int = 16) -> list:
     This function generates a scramble for 3x3x3 Cube
     Following the WCA guidelines.
   """
-
-
-  def sameAxis(MoveA: str, MoveB: str, MoveC: str) -> None:
-    """
-      Internal function to check if a group of 3 movements
-      are from the same axis.
-      A sequence of 3 moves in the same aixis is not valid.
-      Ex.: R L R, F B F, U D U, L R L, etc.
-    """
-    concatened: str = MoveA[-1] + MoveB[-1] + MoveC[-1]
-    return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
-
 
   Moves_Types: tuple = ('Rx', 'Uy', 'Bz', 'Lx', 'Dy', 'Fz')
   Orientation: tuple = ("", "'", "2")
