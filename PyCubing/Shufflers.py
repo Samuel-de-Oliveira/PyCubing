@@ -3,10 +3,11 @@ from random import randint
 __all__: list = [
   'Cube2x2x2',
   'Cube3x3x3',
+  'Cube4x4x4',
 ]
 
 
-def sameAxis(MoveA: str, MoveB: str, MoveC: str) -> None:
+def sameAxis(MoveA: str, MoveB: str, MoveC: str) -> bool:
     """
       Internal function to check if a group of 3 movements
       are from the same axis.
@@ -17,7 +18,7 @@ def sameAxis(MoveA: str, MoveB: str, MoveC: str) -> None:
     return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
 
-def Cube2x2x2(size: int = 12) -> list:
+def Cube2x2x2(size: int = 10) -> list:
   """
     This function generates a scramble for 2x2x2 Cube
     Following the WCA guidelines.
@@ -29,7 +30,7 @@ def Cube2x2x2(size: int = 12) -> list:
   MoveA: str   = ''
   Moves: list  = []
 
-  for i in range(1, size + 1):
+  for move in range(1, size + randint(0, 3)):
     while True:
       MoveB: str = Moves_types[randint(0, len(Moves_types) - 1)]
       if MoveB != MoveA:
@@ -41,7 +42,7 @@ def Cube2x2x2(size: int = 12) -> list:
   return Moves
 
 
-def Cube3x3x3(size: int = 16) -> list:
+def Cube3x3x3(size: int = 21) -> list:
   """
     This function generates a scramble for 3x3x3 Cube
     Following the WCA guidelines.
@@ -54,11 +55,36 @@ def Cube3x3x3(size: int = 16) -> list:
   MoveB: str  = ' '
   Moves: list = []
 
-  for i in range(1, size + 1):
+  for move in range(1, size + randint(0, 5)):
     while True:
       MoveC: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
       if (not sameAxis(MoveA, MoveB, MoveC) and MoveC != MoveB): break
   
+    MoveB: str = MoveC
+    MoveA: str = MoveB
+    Moves.append(MoveC[0] + Orientation[randint(0, len(Orientation) - 1)])
+
+  return Moves
+
+
+def Cube4x4x4(size: int = 40) -> list:
+  """
+    This function generates a scramble for 4x4x4 Cube
+    Following the WCA guidelines.
+  """
+
+  Moves_Types: tuple = ('Rx', 'Uy', 'Bz', 'Lx', 'Dy', 'Fz')
+  Orientation: tuple = ("", "'", "2", "w", "w'", "w2")
+  
+  MoveA: str  = ' '
+  MoveB: str  = ' '
+  Moves: list = []
+
+  for move in range(1, size + randint(0, 5)):
+    while True:
+      MoveC: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
+      if (not sameAxis(MoveA, MoveB, MoveC) and MoveC != MoveB): break
+
     MoveB: str = MoveC
     MoveA: str = MoveB
     Moves.append(MoveC[0] + Orientation[randint(0, len(Orientation) - 1)])
