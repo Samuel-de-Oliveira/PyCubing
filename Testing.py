@@ -2,7 +2,7 @@ import PyCubing
 from PyCubing import GetScramble
 
 
-def main():
+def Test_Scrambles():
     # Test 2x2x2 Scramble
     print('\033[1;4m2x2x2 Scramble:\033[m \033[3m', end='')
     gen2x2x2: list = GetScramble.Cube2x2x2()
@@ -24,7 +24,14 @@ def main():
         print(item, end=' ')
     print('\033[m')
 
+    # Test Pyraminx Scramble
+    print('\033[1;4mPyraminx Scramble:\033[m \033[3m', end='')
+    genPyra: list = GetScramble.Pyraminx()
+    for item in genPyra:
+        print(item, end=' ')
+    print('\033[m')
+
 
 if __name__ == "__main__":
     print(f'Pycubing Version: \033[1m{PyCubing.__version__}\033[m')
-    main()
+    Test_Scrambles()

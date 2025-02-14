@@ -4,6 +4,7 @@ __all__: list = [
   'Cube2x2x2',
   'Cube3x3x3',
   'Cube4x4x4',
+  'Pyraminx',
 ]
 
 
@@ -88,6 +89,39 @@ def Cube4x4x4(size: int = 40) -> list:
     MoveB: str = MoveC
     MoveA: str = MoveB
     Moves.append(MoveC[0] + Orientation[randint(0, len(Orientation) - 1)])
+
+  return Moves
+
+
+def Pyraminx(edges_size: int = 9, corner_sizes: int = 3):
+  """
+    This function generates a scramble for Pyraminx
+    Following the WCA guidelines.
+  """
+
+  Moves_Types: tuple = ('R', 'L', 'U', 'B')
+  Orientation: tuple = ("", "'")
+
+  Moves: list = []
+
+  # Edges moves
+  MoveA: str = ''
+  for move in range(1, edges_size + randint(0, 1)):
+    while True:
+      MoveB: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
+      if MoveB != MoveA: break
+
+    MoveA: str = MoveB
+    Moves.append(MoveB + Orientation[randint(0, len(Orientation) - 1)])
+
+  MoveA: str = ''
+  for move in range(1, corner_sizes + randint(0, 1)):
+    while True:
+      MoveB: str = Moves_Types[randint(0, len(Moves_Types) - 1)].lower()
+      if MoveB != MoveA: break
+
+    MoveA: str = MoveB
+    Moves.append(MoveB + Orientation[randint(0, len(Orientation) - 1)])
 
   return Moves
 
