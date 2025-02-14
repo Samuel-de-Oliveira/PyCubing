@@ -11,7 +11,7 @@ pip install PyCubing
 ## Usage
 This code generate a scramble for a 2x2x2 cube:
 ```python
-from PyCubing import Shufflers
+from PyCubing import GetScramble
 
 if __name__ == "__main__":
   scramble: list = Shufflers.Cube2x2x2()
