@@ -61,8 +61,8 @@ def Cube3x3x3(size: int = 21) -> list:
       MoveC: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
       if (not sameAxis(MoveA, MoveB, MoveC) and MoveC != MoveB): break
   
-    MoveB: str = MoveC
     MoveA: str = MoveB
+    MoveB: str = MoveC
     Moves.append(MoveC[0] + Orientation[randint(0, len(Orientation) - 1)])
 
   return Moves
@@ -86,8 +86,33 @@ def Cube4x4x4(size: int = 40) -> list:
       MoveC: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
       if (not sameAxis(MoveA, MoveB, MoveC) and MoveC != MoveB): break
 
-    MoveB: str = MoveC
     MoveA: str = MoveB
+    MoveB: str = MoveC
+    Moves.append(MoveC[0] + Orientation[randint(0, len(Orientation) - 1)])
+
+  return Moves
+
+
+def Cube5x5x5(size: int = 55) -> list:
+  """
+    This function generates a scramble for 4x4x4 Cube
+    Following the WCA guidelines.
+  """
+
+  Moves_Types: tuple = ('Rx', 'Uy', 'Bz', 'Lx', 'Dy', 'Fz')
+  Orientation: tuple = ("", "'", "2", "w", "w'", "w2")
+
+  MoveA: str  = ' '
+  MoveB: str  = ' '
+  Moves: list = []
+
+  for move in range(0, size + randint(0, 5)):
+    while True:
+      MoveC: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
+      if (not sameAxis(MoveA, MoveB, MoveC) and MoveC != MoveB): break
+
+    MoveA: str = MoveB
+    MoveB: str = MoveC
     Moves.append(MoveC[0] + Orientation[randint(0, len(Orientation) - 1)])
 
   return Moves
@@ -118,6 +143,28 @@ def Pyraminx(edges_size: int = 9, corner_sizes: int = 3):
   for move in range(1, corner_sizes + randint(0, 1)):
     while True:
       MoveB: str = Moves_Types[randint(0, len(Moves_Types) - 1)].lower()
+      if MoveB != MoveA: break
+
+    MoveA: str = MoveB
+    Moves.append(MoveB + Orientation[randint(0, len(Orientation) - 1)])
+
+  return Moves
+
+
+def Skewb(size: int = 9) -> list:
+  """
+    This function generates a scramble for Skewb
+    Following the WCA guidelines.
+  """
+
+  Moves_Types: tuple = ('R', 'L', 'U', 'B')
+  Orientation: tuple = ("", "'")
+
+  MoveA: str  = ''
+  Moves: list = []
+  for move in range(1, size + randint(0, 1)):
+    while True:
+      MoveB: str = Moves_Types[randint(0, len(Moves_Types) - 1)]
       if MoveB != MoveA: break
 
     MoveA: str = MoveB
