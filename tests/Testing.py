@@ -45,6 +45,13 @@ def Test_Scrambles():
         print(item, end=' ')
     print('\033[m')
 
+    # Test Square One Scramble
+    print("\033[1;4mSquare One's Scramble:\033[m \033[3m", end='')
+    genSquareOne: list = GetScramble.Square_One()
+    for item in genSquareOne:
+        print(item, end=' ')
+    print('\033[m')
+
 
 if __name__ == '__main__':
     print(f'Pycubing Version: \033[1m{PyCubing.__version__}\033[m')

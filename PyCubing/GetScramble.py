@@ -1,10 +1,12 @@
-from random import randint
+from random import randint, choice
 
 __all__: list = [
     'Cube2x2x2',
     'Cube3x3x3',
     'Cube4x4x4',
     'Pyraminx',
+    'Skewb',
+    'Square_One',
 ]
 
 
@@ -175,6 +177,35 @@ def Skewb(size: int = 9) -> list:
 
         MoveA: str = MoveB
         Moves.append(MoveB + Orientation[randint(0, len(Orientation) - 1)])
+
+    return Moves
+
+
+def Square_One(size: int = 14) -> list:
+    """
+    This function generates a scramble for Square One
+    Following the WCA guidelines.
+    """
+
+    MoveA: tuple = ()
+    Moves: list = []
+
+    for move in range(1, size + 1):
+        while True:
+            x: int = randint(-5, 6)
+            y: int = randint(-5, 6)
+            MoveB: tuple = (x, y)
+
+            if MoveB != MoveA:
+                break
+
+        Moves.append((x, y))
+        if not move == size:
+            Moves.append('/')
+
+    add_slash: bool = choice((True, False))
+    if add_slash:
+        Moves.append('/')
 
     return Moves
 
