@@ -12,3 +12,4 @@ CACHEDIR.TAG
 pyvenv.cfg
 Lib/
 Scripts/
+Include/
