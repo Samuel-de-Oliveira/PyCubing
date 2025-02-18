@@ -14,7 +14,7 @@ This code generate a scramble for a 2x2x2 cube:
 from PyCubing import GetScramble
 
 if __name__ == "__main__":
-  scramble: list = Shufflers.Cube2x2x2()
+  scramble: list = GetScramble.Cube2x2x2()
   print(f'A 2x2x2 Scramble: {scramble}')
 ```
 
