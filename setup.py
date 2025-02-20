@@ -20,7 +20,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
     ],
-    package_dir={'': 'PyCubing'},
+    package_dir={'PyCubing': 'PyCubing'},
     packages=find_packages(where='PyCubing'),
     python_requires='>=3.6',
     install_requires=[
