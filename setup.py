@@ -15,8 +15,9 @@ setup(
     description='A Python module to make speedcubing projects a piece of cake.',
     keywords = 'cubing rubik rubik\'s cube solver scramble cube',
     long_description=long_description,
+    python_requires='>=3.10',
     long_description_content_type='text/markdown',
-    install_requires=["requests==2.32.3"],
+    install_requires=["requests"],
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
@@ -25,4 +26,7 @@ setup(
         'Topic :: Education',
         'Topic :: Games/Entertainment',
     ],
+    project_urls={
+        "Source": "https://github.com/Samuel-de-Oliveira/PyCubing",
+    },
 )
