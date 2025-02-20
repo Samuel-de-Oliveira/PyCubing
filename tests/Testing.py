@@ -31,6 +31,20 @@ def Test_Scrambles():
         print(item, end=' ')
     print('\033[m')
 
+    # Test 6x6x6 Scramble
+    print("\033[1;4m6x6x6's Scramble:\033[m \033[3m", end='')
+    gen6x6x6: list = GetScramble.Cube6x6x6()
+    for item in gen6x6x6:
+        print(item, end=' ')
+    print('\033[m')
+
+    # Test 7x7x7 Scramble
+    print("\033[1;4m7x7x7's Scramble:\033[m \033[3m", end='')
+    gen7x7x7: list = GetScramble.Cube7x7x7()
+    for item in gen7x7x7:
+        print(item, end=' ')
+    print('\033[m')
+
     # Test Pyraminx Scramble
     print("\033[1;4mPyraminx's Scramble:\033[m \033[3m", end='')
     genPyra: list = GetScramble.Pyraminx()
