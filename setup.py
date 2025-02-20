@@ -1,29 +1,28 @@
-from setuptools import setup, find_packages
+from setuptools import setup
+import PyCubing
 
 with open('README.md', 'r', encoding='utf-8') as fh:
     long_description = fh.read()
 
 setup(
     name='PyCubing',
-    version='0.1',
+    version=PyCubing.__version__,
     author='Samuel de Oliveira',
     author_email='samwolfg12@gmail.com',
-    description='A Python module to make speedcubing projects a piece of cake',
+    packages=['PyCubing'],
+    url='https://github.com/Samuel-de-Oliveira/PyCubing',
+    license='MIT',
+    description='A Python module to make speedcubing projects a piece of cake.',
+    keywords = 'cubing rubik rubik\'s cube solver scramble cube',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    url='https://github.com/Samuel-de-Oliveira/PyCubing',
-    project_urls={
-        'Bug Tracker': 'https://github.com/Samuel-de-Oliveira/PyCubing/issues',
-    },
+    install_requires=["requests==2.32.3"],
     classifiers=[
-        'Programming Language :: Python :: 3',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-    ],
-    package_dir={'PyCubing': 'PyCubing'},
-    packages=find_packages(where='PyCubing'),
-    python_requires='>=3.6',
-    install_requires=[
-        'requests',
+        'Programming Language :: Python :: 3',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+        'Topic :: Education',
+        'Topic :: Games/Entertainment',
     ],
 )
