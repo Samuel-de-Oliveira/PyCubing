@@ -78,6 +78,7 @@ def test_API() -> None:
 
     print('-' * 25)
 
+
 if __name__ == '__main__':
     print(f'Pycubing Version: \033[1m{PyCubing.__version__}\033[m')
     Test_Scrambles()
