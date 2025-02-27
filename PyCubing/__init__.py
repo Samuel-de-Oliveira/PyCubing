@@ -3,6 +3,14 @@ import requests
 __version__: str = '0.1'
 __author__: str = 'Samuel de Oliveira'
 __license__: str = 'MIT'
+__doc__: str = """
+-*--------- The PyCubing official docs ---------*-
+
+    Everything can be finded at this link:
+    https://github.com/Samuel-de-Oliveira/PyCubing
+
+-*----------------------------------------------*-
+"""
 
 __all__: list = [
     'get_wca_rankig',
@@ -37,15 +45,23 @@ def get_wca_ranking(
     event: str = '3x3x3',
     region: str = 'world',
     score_type: str = 'average',
-    size: int = 10,
-) -> None:
+    rank_size: int = 10,
+) -> dict:
+    """
+    Get the best scores of a WCA modality
+    and return it in a dictionary
+    """
+
     get_ranking = requests.get(
         f'{WCA_UNOFFICIAL_API}/rank/{region}/{score_type}/{API_MODALITIES[event]}.json'
     )
-    for person in range(0, size):
-        print(
-            f"\033[1;34m{person + 1}\033[m - \033[1m{get_ranking.json()['items'][person]['personId']}:\033[m {get_ranking.json()['items'][person]['best']}"
+    ranking: dict = {}
+    for person in range(0, rank_size):
+        ranking[get_ranking.json()['items'][person]['personId']] = (
+            get_ranking.json()['items'][person]['best'] / 100
         )
+
+    return ranking
 
 
 if __name__ == '__main__':

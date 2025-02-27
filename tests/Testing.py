@@ -66,7 +66,19 @@ def Test_Scrambles():
         print(item, end=' ')
     print('\033[m')
 
+    print('-' * 25)
+
+
+def test_API() -> None:
+    print('Top 10 WCA 3x3x3 average records')
+
+    ranking: dict = PyCubing.get_wca_ranking()
+    for rank in ranking:
+        print(f'\033[1m{rank}:\033[m {ranking[rank]}')
+
+    print('-' * 25)
 
 if __name__ == '__main__':
     print(f'Pycubing Version: \033[1m{PyCubing.__version__}\033[m')
     Test_Scrambles()
+    test_API()
