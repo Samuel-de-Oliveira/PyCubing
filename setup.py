@@ -17,7 +17,7 @@ setup(
     long_description=long_description,
     python_requires='>=3.10',
     long_description_content_type='text/markdown',
-    install_requires=["requests"],
+    install_requires=["requests==2.32.3"],
     classifiers=[
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
@@ -29,4 +29,5 @@ setup(
     project_urls={
         "Source": "https://github.com/Samuel-de-Oliveira/PyCubing",
     },
+    setup_requires=["requests==2.32.3", "wheel==0.45.1"],
 )
